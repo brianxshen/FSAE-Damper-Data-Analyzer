@@ -8,5 +8,6 @@ This code is used to clean up the data from the damper dyno.
 - Data is "sliced" into a configurable slice width to remove outliers using 
   - IQR with configurable range (ex. [40,60])
   - Z Scores with configurable limit (ex. 2 SD)
+  - Median value of each slice
 
 Made for Terps Racing: Formula SAE @ University of Maryland: College Park
