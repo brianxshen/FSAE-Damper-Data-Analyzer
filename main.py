@@ -5,6 +5,8 @@ import sys
 import functions as f
 import plotting as p
 
+# p.finalPlot()
+
 # To Do
 # Logging MID
 # General Clean Up MID
@@ -36,12 +38,11 @@ lowSpeedDataIndex,highSpeedDataIndex = f.dataSeparator(cleanCompression,lowerBou
 x = f.dataFilter(highSpeedDataIndex,cleanCompression)[:, 3]
 y = f.dataFilter(highSpeedDataIndex,cleanCompression)[:, 1]
 
-fit = np.polyfit(x,y,1)
 xp = np.linspace(2,12,100)
-p1 = np.poly1d(fit)
+p1 = np.poly1d(np.polyfit(x,y,1))
 
-t = plt.scatter(f.dataFilter(highSpeedDataIndex,cleanCompression)[:, 3],f.dataFilter(highSpeedDataIndex,cleanCompression)[:, 1],s=5,alpha=0.5)
-_ = plt.plot(xp,p1(xp))
+data = plt.scatter(f.dataFilter(highSpeedDataIndex,cleanCompression)[:, 3],f.dataFilter(highSpeedDataIndex,cleanCompression)[:, 1],s=5,alpha=0.5)
+trendline = plt.plot(xp,p1(np.linspace(2,12,100)))
 plt.show()
 
 
